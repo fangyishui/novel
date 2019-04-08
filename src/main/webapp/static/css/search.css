@@ -1,0 +1,165 @@
+﻿html, body, ul, ol, li, p, h1, h2, h3, h4, h5, h6, table, td, th, img, div, dl, dt, dd, input, select, form, fieldset {
+    margin: auto;
+    padding: 0;
+}
+
+body {
+    background-color: #E9FAFF;
+    color: #555;
+    font-family: 宋体;
+    font-size: 12px;
+    margin: 0 auto;
+}
+
+ul li {
+    list-style: none outside none;
+}
+
+a {
+    color: #6F78A7;
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline;
+    top: -1px;
+}
+
+.clear {
+    clear: both;
+}
+
+.header {
+    width: 980px;
+    margin: auto;
+    padding: 20px 0;
+}
+
+.header_logo {
+    float: left;
+    padding: 0 60px;
+    font-size: 32px;
+    font-weight: 700;
+}
+
+.header_search {
+    padding-top: 4px;
+    padding-right: 100px;
+}
+
+.header_search input {
+    padding: 5px 5px;
+    font-size: 16px;
+}
+
+.header_search .search {
+    width: 400px;
+}
+
+.header_search .searchBtn {
+    width: 100px;
+}
+
+.footer {
+    overflow: hidden;
+    text-align: center;
+    width: 980px;
+    margin: 10px auto auto;
+    min-height: 100px;
+}
+
+.footer_link {
+    border-bottom: 2px solid #88C6E5;
+    height: 25px;
+    line-height: 25px;
+    overflow: hidden;
+    width: 92%;
+    margin: 5px auto;
+}
+
+.footer_cont p {
+    color: #B2B2B2;
+    line-height: 20px;
+    width: 88%;
+}
+
+#search-main {
+    width: 980px;
+    margin: auto;
+}
+
+.search-list {
+    margin: 10px auto;
+    border: 3px solid #A6D3E8;
+    width: 974px;
+    background: #FEF9EF;
+}
+
+.search-list h2 {
+    margin: 0px;
+    background-color: #A6D3E8;
+    border-bottom: 1px solid #DDDDDD;
+    font-size: 14px;
+    font-weight: bold;
+    height: 30px;
+    line-height: 30px;
+    overflow: hidden;
+    padding: 0 0 0 10px;
+}
+
+.search-list ul {
+    padding: 10px;
+}
+
+.search-list li {
+    padding: 5px 0px 0px 0px;
+    border-bottom: solid 1px #DDDDDD;
+    height: 25px;
+    line-height: 25px;
+    overflow: hidden;
+}
+
+.search-list li span {
+    float: left;
+    display: inline-block;
+}
+
+.search-list li .s1 {
+    width: 10%;
+    overflow: hidden;
+}
+
+.search-list li .s2 {
+    width: 15%;
+    overflow: hidden;
+}
+
+.search-list li .s3 {
+    width: 25%;
+    overflow: hidden;
+}
+
+.search-list li .s4 {
+    width: 10%;
+    overflow: hidden;
+}
+
+.search-list li .s5 {
+    color: red;
+    width: 23%;
+    overflow: hidden;
+}
+
+.search-list li .s6 {
+    width: 10%;
+    overflow: hidden;
+}
+
+.search-list li .s7 {
+    width: 7%;
+    overflow: hidden;
+}
+
+.search-list li a {
+    color: #6F78A7;
+}

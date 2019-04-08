@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>书包---小说搜索</title>
+    <link rel="Bookmark" href="/static/favicon.ico" >
+	<link rel="Shortcut Icon" href="/static/favicon.ico" />
+    <link rel="stylesheet" href="/static/css/search.css"/>
+    <script type="text/javascript" src="/static/js/search.js"></script>
+    <script type="text/javascript" src="/static/js/jquery.min.js"></script>
+</head>
+<body>
+<div id="wrapper">
+    <div class="header">
+        <div class="header_logo">小说搜索</div>
+        <div class="header_search">
+                <input type="hidden" name="siteid" value="qula">
+                <input id="bookName1" class="search" name="q" type="text" maxlength="30"
+                       title="" placeholder="可搜书名，请您少字也别输错字">
+                <input type="button" onclick="search()" class="searchBtn" value="搜索" title="搜索">
+        </div>
+    </div>
+
+    <div id="search-main">
+        <div class="search-list">
+            <ul>
+                <li><span class="s1"><b>作品分类</b></span>
+                    <span class="s2"><b>作品名称</b></span>
+                    <span class="s4"><b>作者</b></span>
+                </li>
+            </ul>
+            	<div id="h13"></div>
+            	<div id="h14"></div>
+        	</div>
+		
+    </div>
+</div>
+
+<script type="text/javascript">
+	$(document).keydown(function(event){
+		　　　　if(event.keyCode == 13){
+		　　　　　　search();
+	　　　　}
+	});
+
+	function search(){
+		var bookName = $("#bookName1").val();
+		if(bookName == ""){
+			alert("没有输入书名！")
+			return;
+			}
+   	   			
+		$.ajax({
+		   type: "POST",
+		   url: "/bag/search",
+		   data: {name : $("#bookName1").val(),page:1},
+		   success: function(msg){
+			     var html = ""; 
+			     var html2 = "";
+			     var j = 0;
+                $.each(msg, function(i, book){
+                      html += 
+                       	"<li><span class=\"s1\"></span>\n" + 
+          				"<span class=\"s2\"><a href=\"/bag/bagList?url="+book.url+"\" target=\"_blank\">\n" + 
+	       				""+book.name+"</a>\n" + 
+	       				" </span>\n" + 
+	       				" <span class=\"s4\"></span>\n" + 
+	       				" </li>";
+						
+       					if(j < book.lastPage){
+       						j++;
+           					html2 +="<em id=\"pagestats\">1/"+j+"</em>\r\n" ;
+// 							html2 +="<a href="+book.nowUrl+""+j+">第"+j+"页</a>";
+							html2 +="<a href=\"/bag/search2?name="+book.title+"&page="+j+"\">第"+j+"页</a>";
+           				}
+
+                });
+                	$("#h13").html("");
+                	$("#h14").html("");
+                	$("#h13").html(html);
+                	$("#h14").html(html2);		
+		   }
+		});
+}
+</script>
+</body>
+</html>
