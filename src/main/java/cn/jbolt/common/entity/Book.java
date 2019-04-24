@@ -11,12 +11,19 @@ public class Book {
 	private String title;
 	private String text;
 	private String nowUrl;
+	
 	private String lastUrl;
+	
 	private String nextUrl;
 	private String listUrl;
 	private String lastTime;
 	
 	private String lastPage;
+	private String lastOneUrl;
+	//简介
+	private String introduce;
+	
+	private String bookType;
 	
 	private List<SearchResult> listUrls;
 	
@@ -98,15 +105,24 @@ public class Book {
 	public void setLastPage(String lastPage) {
 		this.lastPage = lastPage;
 	}
-	
-	String s  ="<div class=\"pages\">\r\n" + 
-			"		<div class=\"pagelink\" id=\"pagelink\">\r\n" + 
-			"			<em id=\"pagestats\">1/6</em>\r\n" + 
-			"			<a href=\"/modules/article/search.php?\r\n" + 
-			"			searchkey=%B8%DF%CA%D6&searchtype=articlename&page=6\">6</a>\r\n" + 
-			"		</div>\r\n" + 
-			"		</div>";
-	
+	public String getIntroduce() {
+		return introduce;
+	}
+	public void setIntroduce(String introduce) {
+		this.introduce = introduce;
+	}
+	public String getLastOneUrl() {
+		return lastOneUrl;
+	}
+	public void setLastOneUrl(String lastOneUrl) {
+		this.lastOneUrl = lastOneUrl;
+	}
+	public String getBookType() {
+		return bookType;
+	}
+	public void setBookType(String bookType) {
+		this.bookType = bookType;
+	}
 	
 	
 }
