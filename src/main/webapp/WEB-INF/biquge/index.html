@@ -266,13 +266,13 @@
         </div>
         <table class="table">
    #for(book : books)        	
-  <tr>
-	<td class="text-muted hidden-xs" width="10%">#(book.bookType)</td>
-	<td><a href="/bqg/list?url=#(book.url)" title="逆剑狂神">#(book.name)</a></td>
-	<td class="hidden-xs"><a href="/bqg/render?url=#(book.lastUrl)" title="第246章 半步融灵">#(book.lastPage)</a></td>
-	<td class="text-muted fs-12" title="一剑清新">#(book.author)</td>
-	<td class="fs-12"> 01-27 16:51</td>
-  </tr>
+	  <tr>
+		<td class="text-muted hidden-xs" width="10%">#(book.bookType.substring(1, 5))</td>
+		<td><a href="/bqg/list?url=#(book.url)" title="逆剑狂神">#(book.name)</a></td>
+		<td class="hidden-xs"><a href="/bqg/render?url=#(book.lastUrl)" title="第246章 半步融灵">#(book.lastPage)</a></td>
+		<td class="text-muted fs-12" title="一剑清新">#(book.author)</td>
+		<td class="fs-12"> 01-27 16:51</td>
+	  </tr>
 	#end
         </table>
       </div>

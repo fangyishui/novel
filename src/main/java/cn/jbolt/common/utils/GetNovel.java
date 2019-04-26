@@ -39,9 +39,13 @@ public class GetNovel {
         	result.setBookName(element.select(".s2 > a").text());
         	result.setUrl(element.select(".s2 > a").attr("abs:href"));
         	result.setAuthor(element.select(".s4").text());
+        	result.setSearchKey(keywords);
+        	result.setLastChapter(element.select(".s3 >a").text());
+        	result.setLastUrl(element.select(".s3 > a").attr("abs:href"));
+        	result.setLastDate(element.select(".s6").text());
         	list.add(result);
 		}
-        
+        list.remove(0);
         return list;
     }
     

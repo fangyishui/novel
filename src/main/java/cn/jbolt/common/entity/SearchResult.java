@@ -1,7 +1,5 @@
 package cn.jbolt.common.entity;
 
-import java.util.Date;
-
 public class SearchResult {
 
 	private Integer id;
@@ -9,10 +7,13 @@ public class SearchResult {
 	private String bookType;
 	private String author;
 	private String url;
-	private Date lastDate;
+	private String lastDate;
 	private Integer state;
-	
 	private String name;
+	private String searchKey;
+	private String lastChapter;
+	private String lastUrl;
+	
 	
 	public Integer getId() {
 		return id;
@@ -44,10 +45,10 @@ public class SearchResult {
 	public void setUrl(String url) {
 		this.url = url;
 	}
-	public Date getLastDate() {
+	public String getLastDate() {
 		return lastDate;
 	}
-	public void setLastDate(Date lastDate) {
+	public void setLastDate(String lastDate) {
 		this.lastDate = lastDate;
 	}
 	public Integer getState() {
@@ -61,6 +62,24 @@ public class SearchResult {
 	}
 	public void setName(String name) {
 		this.name = name;
+	}
+	public String getSearchKey() {
+		return searchKey;
+	}
+	public void setSearchKey(String searchKey) {
+		this.searchKey = searchKey;
+	}
+	public String getLastChapter() {
+		return lastChapter;
+	}
+	public void setLastChapter(String lastChapter) {
+		this.lastChapter = lastChapter;
+	}
+	public String getLastUrl() {
+		return lastUrl;
+	}
+	public void setLastUrl(String lastUrl) {
+		this.lastUrl = lastUrl;
 	}
 	
 	

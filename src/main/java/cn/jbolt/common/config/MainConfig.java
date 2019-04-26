@@ -71,11 +71,11 @@ public class MainConfig extends JFinalConfig {
 		
 		//普通不拆分的方式配置 如下
 		//设置默认访问首页路由 可使用http://localhost:port 直接访问 如果80端口 port可以省略
-//		me.add("/",IndexController.class);
+		me.add("/",IndexController.class);
 		me.add("/bag",BagController.class,"/WEB-INF/bag");
 		me.add("/first",DiyiController.class,"/WEB-INF/first");
 //		me.add("/local123",LocalController.class,"/WEB-INF/local");
-		me.add("/",BiqugeController.class,"/WEB-INF/biquge");
+		me.add("/bqg",BiqugeController.class,"/WEB-INF/biquge");
 	}
 	// 先加载开发环境配置，再追加生产环境的少量配置覆盖掉开发环境配置
 	static void loadConfig() {

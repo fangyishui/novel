@@ -62,25 +62,25 @@
 <div class="container body-content">
 
 <div class="mySearch">
-	<p class="p1">搜索“网游”的结果：</p>
+	<p class="p1">搜索“#(lists.get(0).searchKey)”的结果：</p>
   
   #for(n : lists)
-  	<div><img src="/bootstrap/picture/38s.jpg" height="110" width="90" /></div>
+<!--   	<div><img src="/bootstrap/picture/timg.jpg" height="110" width="90" /></div> -->
 	<ul>
 		<li>小说：<a href="/bqg/list?url=#(n.url)" class="b">#(n.bookName)</a></li>
-		<li>最新：<a href="http://rw.svip3.cn/0/38/21454.html" target="_blank"> 第一百二十九章 0.5的生死交锋</a></li>
-		<li>作者：九年起点教育</li>
-		<li>大小：677K</li>
-		<li>更新时间：18-01-27</li>
-		<li>状态：连载</li>
+		<li>最新：<a href="/bqg/reder?url=#(n.lastUrl)" target="_blank"> #(n.lastChapter)</a></li>
+		<li>作者：#(n.author)</li>
+<!-- 		<li>大小：677K</li> -->
+		<li>更新时间：#(n.lastDate)</li>
+<!-- 		<li>状态：连载</li> -->
 	</ul>
   #end
   
-<ul class="pagination" id="pagelink"><li class="disabled"><span>1/1</span></li><li><a href="/modules/article/search.php?searchkey=%CD%F8%D3%CE&page=1" class="first">1</a></li>
-		<li><a href="/modules/article/search.php?searchkey=%CD%F8%D3%CE&page=1" class="pgroup">&lt;&lt;</a></li>
-		<li class="active"><span>1</span></li><li><a href="/modules/article/search.php?searchkey=%CD%F8%D3%CE&page=1" class="ngroup">&gt;&gt;</a></li>
-		<li><a href="/modules/article/search.php?searchkey=%CD%F8%D3%CE&page=1" class="last">1</a></li>
-		</ul>
+<!-- 	<ul class="pagination" id="pagelink"><li class="disabled"><span>1/1</span></li><li><a href="/modules/article/search.php?searchkey=%CD%F8%D3%CE&page=1" class="first">1</a></li> -->
+<!-- 		<li><a href="/modules/article/search.php?searchkey=%CD%F8%D3%CE&page=1" class="pgroup">&lt;&lt;</a></li> -->
+<!-- 		<li class="active"><span>1</span></li><li><a href="/modules/article/search.php?searchkey=%CD%F8%D3%CE&page=1" class="ngroup">&gt;&gt;</a></li> -->
+<!-- 		<li><a href="/modules/article/search.php?searchkey=%CD%F8%D3%CE&page=1" class="last">1</a></li> -->
+<!-- 	</ul> -->
 </div>
 <style>
 	.mySearch{border:1px solid #ccc;border-radius:5px;padding:10px;background: #fff}
