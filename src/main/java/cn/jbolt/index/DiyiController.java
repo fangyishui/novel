@@ -35,15 +35,6 @@ public class DiyiController extends Controller{
 	
 	//查看一页正文
 	public void firstText() {
-//		Book book =null;
-//		try {
-//		  book =DiyiNovel.getText("http://38.103.161.143/forum/thread-10400262-1-5.html");
-//		} catch (IOException e) {
-//			e.printStackTrace();
-//		}
-		
-//		setAttr("book", book);
-//		render("content.html");
 		renderText(DiyiNovel.getText("http://38.103.161.143/forum/thread-9129986-1-8.html"));
 	}
 }

@@ -4,13 +4,13 @@ import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.InputStreamReader;
-import java.io.UnsupportedEncodingException;
 import java.util.ArrayList;
 import java.util.List;
 
 import cn.jbolt.common.entity.Book;
 
 public class GetLocalFile {
+//	public final static String FILE_PATH = "C:\\领导";
 
 	public final static String FILE_PATH = "/home/JSOUP";
 
@@ -60,13 +60,6 @@ public class GetLocalFile {
 	      System.out.println("读取文件内容出错"); 
 	      e.printStackTrace(); 
 	    } 
-		
-//		String str ="";
-//		try {
-//			 str = new String(sb.toString().getBytes(),"UTF-8");
-//		} catch (UnsupportedEncodingException e) {
-//			e.printStackTrace();
-//		}
 		
 		return sb.toString();
 	}

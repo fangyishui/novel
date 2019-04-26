@@ -14,14 +14,11 @@ import com.jfinal.server.undertow.UndertowServer;
 import com.jfinal.plugin.druid.DruidPlugin;
 import com.alibaba.druid.filter.stat.StatFilter;
 import com.alibaba.druid.wall.WallFilter;
-import com.jfinal.plugin.activerecord.ActiveRecordPlugin;
-import com.jfinal.plugin.activerecord.dialect.MysqlDialect;
 import com.jfinal.render.ViewType;
 
 import cn.jbolt.index.BagController;
-import cn.jbolt.index.BiqugeController;
-import cn.jbolt.index.DiyiController;
 import cn.jbolt.index.IndexController;
+import cn.jbolt.index.LocalController;
 public class MainConfig extends JFinalConfig {
 	/**
 	 * 将全局配置提出来 方便其他地方重用
@@ -73,9 +70,8 @@ public class MainConfig extends JFinalConfig {
 		//设置默认访问首页路由 可使用http://localhost:port 直接访问 如果80端口 port可以省略
 		me.add("/",IndexController.class,"/WEB-INF/biquge");
 		me.add("/bag",BagController.class,"/WEB-INF/bag");
-		me.add("/first",DiyiController.class,"/WEB-INF/first");
-//		me.add("/local123",LocalController.class,"/WEB-INF/local");
-//		me.add("/bqg",BiqugeController.class,"/WEB-INF/biquge");
+//		me.add("/first",DiyiController.class,"/WEB-INF/first");
+		me.add("/local",LocalController.class,"/WEB-INF/local");
 	}
 	// 先加载开发环境配置，再追加生产环境的少量配置覆盖掉开发环境配置
 	static void loadConfig() {

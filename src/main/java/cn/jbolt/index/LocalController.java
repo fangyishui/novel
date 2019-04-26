@@ -9,6 +9,7 @@ public class LocalController extends Controller{
 	public void index() {
 		setAttr("list", GetLocalFile.getAllFile());
 		render("list.html");
+		 
 	}
 	
 	public void read() {
