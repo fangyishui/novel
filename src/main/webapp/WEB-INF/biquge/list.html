@@ -38,7 +38,7 @@
     #include("head.html")
 <div class="container body-content">
   <ol class="breadcrumb hidden-xs">
-    <li><a href="http://rw.svip3.cn" title="笔趣阁"><i class="fa fa-home fa-fw"></i>首页</a></li>
+    <li><a href="/" title="笔趣阁"><i class="fa fa-home fa-fw"></i>首页</a></li>
 <!--     <li><a href="/list/1.html" target="_blank" title="玄幻小说">玄幻小说</a></li> -->
     <li class="active">#(list.get(0).bookName)</li>
   </ol>
@@ -46,7 +46,7 @@
   <div class="panel panel-default">
     <div class="panel-body">
       <div class="row">
-        <div class="col-md-2 col-xs-4 hidden-xs"><img class="img-thumbnail" alt="#(list.get(0).bookName)" src="/bootstrap/picture/black.jpg" title="#(list.get(0).bookName)" onerror="this.src='/modules/article/images/nocover.jpg';" width="140" height="180" /></div>
+        <div class="col-md-2 col-xs-4 hidden-xs"><img class="img-thumbnail" alt="#(list.get(0).bookName)" src="/bootstrap/picture/timg (1).jpg" title="#(list.get(0).bookName)" onerror="this.src='/modules/article/images/nocover.jpg';" width="140" height="180" /></div>
         <div class="col-md-10">
           <h1 class="bookTitle">#(list.get(0).bookName)&nbsp;&nbsp;&nbsp;#(list.get(0).author)</h1>
           <p> 最新章节：<a href="/reder?url=#(list.get(0).lastOneUrl)" title="#(list.get(0).lastPage)">#(list.get(0).lastPage)</a></p>
@@ -74,6 +74,7 @@
   </div>
   <p>《#(list.get(0).bookName)》所有内容均来自互联网或网友上传，笔趣阁只为--#(list.get(0).author.substring(4))--的小说进行宣传。欢迎各位书友支持--#(list.get(0).author.substring(4))--并收藏《#(list.get(0).bookName)》最新章节。</p>
   <script>foot();</script> 
+  
 </div>
 <script>
         ErrorLink('#(list.get(0).bookName)');

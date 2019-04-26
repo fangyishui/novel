@@ -8,10 +8,8 @@ import com.jfinal.core.Controller;
 import cn.jbolt.common.entity.SearchResult;
 import cn.jbolt.common.utils.GetNovel;
 /**
- * IndexController 指向系统访问首页
- * @author jbolt.cn
- * @email 909854136@qq.com
- * @date 2018年11月4日 下午9:02:52
+ * IndexController 首页
+ * 这是https://www.qu.la的爬虫
  */
 public class IndexController extends Controller {
 	/**
@@ -33,7 +31,6 @@ public class IndexController extends Controller {
 		render("search.html");
 	}
 	
-	
 	public void reder() {
 		Map<String, Object> map =null;
 		try {
@@ -52,7 +49,6 @@ public class IndexController extends Controller {
 	}
 	
 	public void list() {
-		
 		List<Map<String, String>> map =null;
 		try {
 			map = GetNovel.getNovelIndex(getPara("url").toString());
@@ -60,7 +56,6 @@ public class IndexController extends Controller {
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
-		
 		setAttr("list", map);
 		render("list.html");
 	}

@@ -26,47 +26,16 @@
 <script src="/bootstrap/js/profit.js" type="text/javascript"></script>
 </head>
 <body>
-<div class="navbar navbar-inverse" id="header">
-  <div class="container">
-    <div class="navbar-header">
-      <button class="navbar-toggle collapsed" type="button" data-toggle="collapse" data-target=".bs-navbar-collapse"><span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span></button>
-      <a href="http://rw.svip3.cn" class="navbar-brand logo" title="笔趣阁">笔趣阁</a></div>
-    <nav class="collapse navbar-collapse bs-navbar-collapse" role="navigation" id="nav-header">
-      <ul class="nav navbar-nav">
-        <li><a href="/list/1.html" title="玄幻小说">玄幻小说</a></li>
-        <li><a href="/list/2.html" title="仙侠小说">仙侠小说</a></li>
-        <li><a href="/list/3.html" title="都市小说">都市小说</a></li>
-        <li><a href="/list/4.html" title="历史小说">历史小说</a></li>
-        <li><a href="/list/5.html" title="科幻小说">科幻小说</a></li>
-        <li><a href="/list/6.html" title="网游小说">网游小说</a></li>
-        <li class="dropdown"><a class="dropdown-toggle" href="javascript:;" data-toggle="dropdown">排行榜<span class="caret"></span></a>
-          <ul class="dropdown-menu" role="menu">
-            <li><a href="/top/allvisit/" title="点击总榜">点击总榜</a></li>
-            <li><a href="/top/allvote/" title="推荐总榜">推荐总榜</a></li>
-            <li><a href="/top/monthvisit/" title="点击月榜">点击月榜</a></li>
-            <li><a href="/top/monthvote/" title="推荐月榜">推荐月榜</a></li>
-            <li><a href="/top/weekvisit/" title="周排行榜">周排行榜</a></li>
-            <li><a href="/top/weekvote/" title="周推荐榜">周推荐榜</a></li>
-            <li><a href="/top/goodnum/" title="总收藏榜">总收藏榜</a></li>
-            <li><a href="/top/toptime/" title="本站推荐">本站推荐</a></li>
-            <li><a href="/top/size/" title="字数排行">字数排行</a></li>
-            <li><a href="/top/lastupdate/" title="最近更新">最近更新</a></li>
-            <li><a href="/top/postdate/" title="最新入库">最新入库</a></li>
-          </ul>
-        </li>
-        <li><a href="/wanben/" title="完本小说">完本小说</a></li>
-      </ul>
-      <ul class="nav navbar-nav navbar-right">
-        <script>login();</script>
-      </ul>
-    </nav>
-  </div>
-</div>
+#include("head.html")
 <div class="container body-content read-container">
 <ol class="breadcrumb hidden-xs">
-<li><a href="http://rw.svip3.cn" title="笔趣阁"><i class="fa fa-home fa-fw"></i>首页</a></li>
+<li><a href="/" title="笔趣阁"><i class="fa fa-home fa-fw"></i>首页</a></li>
 <!-- <li><a href="/list/1.html" target="_blank" title="玄幻小说">玄幻小说</a></li> -->
-<li><a href="http://rw.svip3.cn/book/42.html">#(bookName)</a></li>
+<li>
+	<a href="/list?url=#(listUrl)">
+	#(bookName)
+	</a>
+</li>
 <li class="active"> #(title)</li>
 <span class="pull-right"><script src="/bootstrap/js/pagetop.js"></script></span>
 </ol>

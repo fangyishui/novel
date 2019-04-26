@@ -16,10 +16,9 @@ import cn.jbolt.common.entity.SearchResult;
 
 public class GetNovel {
 	
-	private static final List<Book> books = new ArrayList<Book>();
-	
+//	private static final List<Book> books = new ArrayList<Book>();
 	public final static String SEARCH_PATH="https://sou.xanbhx.com/search?siteid=qula&q=";
-//	http://www.shubaoqu.com/
+	
 	/**
      * 获取搜索结果
      * @param keywords
@@ -32,7 +31,6 @@ public class GetNovel {
         Document document = Jsoup.connect(url).get();
        
         List<SearchResult> list = new ArrayList<SearchResult>();
-        
         for (Element element : document.select("ul li")) {
         	SearchResult result = new SearchResult();
         	result.setBookType(element.select(".s1").text());
@@ -88,8 +86,8 @@ public class GetNovel {
      * @throws IOException
      */
     public static Map<String, Object> getText(String url) throws IOException {
-        Document document = Jsoup.connect(url).get();
-        
+       
+    	Document document = Jsoup.connect(url).get();
         String title = document.select("title").text();
         
         String lastUrl =document.select("#A1").attr("abs:href").toString();
@@ -115,27 +113,33 @@ public class GetNovel {
         return map;
     }
     
-//    最近的小说
+    //最近的小说
     public  static List<Book> getNewNovel() {
     	
     	Elements elements =getDoc("https://www.qu.la/").select("div#newscontent").select("ul > li");
-    	
+    	List<Book> books = new ArrayList<Book>();
+    	int num =1;
     	for (Element element : elements) {
     		Book book = new Book();
     		book.setBookType(element.select("span.s1").text());
     		book.setName(element.select("span.s2").text());
-    		book.setUrl(element.select("span.s2").select("a").attr("abs:href"));
-    		book.setLastOneUrl(element.select("span.s3").select("a").attr("abs:href"));
-    		book.setLastPage(element.select("span.s3").select("a").text());
+    		book.setUrl(element.select("span.s2 > a").attr("abs:href"));
+    		book.setLastOneUrl(element.select("span.s3 > a").attr("abs:href"));
+    		book.setLastPage(element.select("span.s3 > a").text());
     		book.setAuthor(element.select("span.s4").text());
+    		book.setLastTime(element.select("span.s5").text());
     		books.add(book);
+    		
+    		if(num == 30) {
+        		break;
+        	}
+        	num++;
 		}
     	
     	return books;
     }
     
-public static Document getDoc(String url) {
-		
+    public static Document getDoc(String url) {
 		Document doc =null;
 		try {
 			doc = Jsoup.connect(url).get();
