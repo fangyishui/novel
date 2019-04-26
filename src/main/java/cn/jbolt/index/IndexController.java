@@ -18,18 +18,19 @@ public class IndexController extends Controller {
 	 * 首页Action
 	 */
 	public void index() {
+		setAttr("books", GetNovel.getNewNovel());
 		render("index.html");
 	}
 	
 	public void search() {
-		
 		List<SearchResult> lists = null;
 	        try {
-	        	lists = GetNovel.getNovelUrl(getPara("name"));
+	        	lists = GetNovel.getNovelUrl(getPara("searchkey"));
 	        } catch (IOException e) {
 	            e.printStackTrace();
 	        }
-		renderJson(lists);
+	    setAttr("lists", lists);
+		render("search.html");
 	}
 	
 	
@@ -46,6 +47,7 @@ public class IndexController extends Controller {
 		setAttr("lastUrl", map.get("lastUrl"));
 		setAttr("nextUrl", map.get("nextUrl"));
 		setAttr("listUrl", map.get("listUrl"));
+		setAttr("bookName", map.get("bookName"));
 		render("content.html");
 	}
 	
@@ -54,6 +56,7 @@ public class IndexController extends Controller {
 		List<Map<String, String>> map =null;
 		try {
 			map = GetNovel.getNovelIndex(getPara("url").toString());
+			
 		} catch (IOException e) {
 			e.printStackTrace();
 		}

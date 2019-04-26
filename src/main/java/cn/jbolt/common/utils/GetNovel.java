@@ -97,11 +97,12 @@ public class GetNovel {
         String bookName = document.select("div.con_top").select("a").eq(1).text();
         Element content = document.getElementById("content");
         
-        String text = content.html().replaceAll("&nbsp;", "")
-				 .replaceAll("<br />", "\r\n")
-				 .replaceAll("亲~本站域名:\"166小说\"的简写谐音166xs.com，很好记哦！www.166xs.com好看的小说强烈推荐：", "")
-				 .replaceAll("166小说阅读网", " ")
-				 ;
+//        String text = content.html().replaceAll("&nbsp;", "")
+//				 .replaceAll("<br />", "\r\n")
+//				 .replaceAll("亲~本站域名:\"166小说\"的简写谐音166xs.com，很好记哦！www.166xs.com好看的小说强烈推荐：", "")
+//				 .replaceAll("166小说阅读网", " ")
+//				 ;
+        String text = content.text();
         Map<String, Object> map =  new HashMap<String, Object>();
         
         map.put("title", title);
