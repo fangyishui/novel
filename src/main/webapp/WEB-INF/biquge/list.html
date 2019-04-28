@@ -51,7 +51,10 @@
           <h1 class="bookTitle">#(list.get(0).bookName)&nbsp;&nbsp;&nbsp;#(list.get(0).author)</h1>
           <p> 最新章节：<a href="/reder?url=#(list.get(0).lastOneUrl)" title="#(list.get(0).lastPage)">#(list.get(0).lastPage)</a></p>
           <p class="visible-xs">更新时间：#(list.get(0).lastTime)</p>
-
+          <p> 全部章节：<a href="javascript:;" id="btn-All">
+          					<span class="text-danger">查看全部章节</span>
+          				</a>
+          </p>
           <hr />
           <p class="text-muted" id="bookIntro" style=""> <img class="img-thumbnail pull-left visible-xs" style="margin:0 5px 0 0" alt="逆剑狂神" src="/bootstrap/picture/42s.jpg" title="逆剑狂神" onerror="this.src='/modules/article/images/nocover.jpg';" width="80" height="120" /> &nbsp;&nbsp;#(list.get(0).introduce) </p>
         </div>
@@ -64,6 +67,7 @@
   <div class="panel panel-default" id="list-chapterAll">
     <div class="panel-heading"><i class="fa fa-list fa-fw"></i><strong>《#(list.get(0).bookName)》全部章节目录</strong></div>
     <dl class="panel-body panel-chapterlist">      
+		  
 		 #for(n : list)
 			<dd class="col-md-3">
 				<a href="/reder?url=#(n.url)" title="#(n.name)">#(n.name)</a>
@@ -73,16 +77,19 @@
     </dl>
   </div>
   <p>《#(list.get(0).bookName)》所有内容均来自互联网或网友上传，笔趣阁只为--#(list.get(0).author.substring(4))--的小说进行宣传。欢迎各位书友支持--#(list.get(0).author.substring(4))--并收藏《#(list.get(0).bookName)》最新章节。</p>
-  <script>foot();</script> 
-  
+<!--   <script>foot();</script>  -->
+  	#include("bottom.html")
 </div>
 <script>
         ErrorLink('#(list.get(0).bookName)');
-        readbook('42');
-        bd_push();
+//         readbook('42');
+//         bd_push();
         $("#btn-All").on("click",function(){
             $("#list-chapterAll").toggle();
         })
+//         $(function(){
+//         	$("#list-chapterAll").toggle();
+//             })
     </script> 
 </body>
 </html>

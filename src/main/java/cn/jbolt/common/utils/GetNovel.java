@@ -89,20 +89,13 @@ public class GetNovel {
        
     	Document document = Jsoup.connect(url).get();
         String title = document.select("title").text();
-        
-        String lastUrl =document.select("#A1").attr("abs:href").toString();
-        String nextUrl =document.select("#A3").attr("abs:href").toString();
+        String lastUrl =document.select("#A1").attr("abs:href");
+        String nextUrl =document.select("#A3").attr("abs:href");
         String bookName = document.select("div.con_top").select("a").eq(1).text();
-        Element content = document.getElementById("content");
+        String content = document.select("div#content").html();
+        String text = content.replaceAll("“Y最_…新章bw节;G上k酷\"匠◇｛网fW0IH", " ");
         
-//        String text = content.html().replaceAll("&nbsp;", "")
-//				 .replaceAll("<br />", "\r\n")
-//				 .replaceAll("亲~本站域名:\"166小说\"的简写谐音166xs.com，很好记哦！www.166xs.com好看的小说强烈推荐：", "")
-//				 .replaceAll("166小说阅读网", " ")
-//				 ;
-        String text = content.text();
         Map<String, Object> map =  new HashMap<String, Object>();
-        
         map.put("title", title);
         map.put("text", text);
         map.put("nowUrl", url);
@@ -113,7 +106,7 @@ public class GetNovel {
         return map;
     }
     
-    //最近的小说
+    //最近更新的小说
     public  static List<Book> getNewNovel() {
     	
     	Elements elements =getDoc("https://www.qu.la/").select("div#newscontent").select("ul > li");
@@ -134,6 +127,119 @@ public class GetNovel {
         		break;
         	}
         	num++;
+		}
+    	
+    	return books;
+    }
+    
+    //最新入库
+    public  static List<Book> getNewInPutNovel() {
+    	
+    	Elements elements =getDoc("https://www.qu.la/").select("div.r").select("ul > li");
+    	List<Book> books = new ArrayList<Book>();
+    	int num =1;
+    	for (Element element : elements) {
+    		Book book = new Book();
+    		book.setBookType(element.select("span.s1").text());
+    		book.setName(element.select("span.s2").text());
+    		book.setUrl(element.select("span.s2 > a").attr("abs:href"));
+    		book.setAuthor(element.select("span.s5").text());
+    		books.add(book);
+    		if(num == 30) {
+        		break;
+        	}
+        	num++;
+		}
+    	
+    	return books;
+    }
+    //获取玄幻
+    public static List<Book> getXuanHuan() {
+    	
+    	Elements elements =getDoc("https://www.qu.la/paihangbang/").select("div#con_o1g_2").select("ul > li");
+    	List<Book> books = new ArrayList<Book>();
+    	int num =1;
+    	for (Element element : elements) {
+    		Book book = new Book();
+    		book.setLastTime(element.select(".hits").text());
+    		book.setName(element.select("a").text());
+    		book.setUrl(element.select("a").attr("abs:href"));
+    		books.add(book);
+    		if(num == 30) {
+        		break;
+        	}
+        	num++;
+		}
+    	
+    	return books;
+    }
+    
+    //获取科幻
+    public static List<Book> getKeHuan() {
+    	
+    	Elements elements =getDoc("https://www.qu.la/paihangbang/").select("div#con_o5g_1").select("ul > li");
+    	List<Book> books = new ArrayList<Book>();
+    	int num =1;
+    	for (Element element : elements) {
+    		Book book = new Book();
+    		book.setLastTime(element.select(".hits").text());
+    		book.setName(element.select("a").text());
+    		book.setUrl(element.select("a").attr("abs:href"));
+    		books.add(book);
+    		if(num == 30) {
+        		break;
+        	}
+        	num++;
+		}
+    	
+    	return books;
+    }
+    
+    //获取历史
+    public static List<Book> getLiShi() {
+    	Elements elements =getDoc("https://www.qu.la/paihangbang/").select("div#con_o4g_2").select("ul > li");
+    	List<Book> books = new ArrayList<Book>();
+    	int num =1;
+    	for (Element element : elements) {
+    		Book book = new Book();
+    		book.setLastTime(element.select(".hits").text());
+    		book.setName(element.select("a").text());
+    		book.setUrl(element.select("a").attr("abs:href"));
+    		books.add(book);
+    		if(num == 30) {
+        		break;
+        	}
+        	num++;
+		}
+    	
+    	return books;
+    }
+    
+    //获取首页有台推荐
+    public static List<Book> getIndexBook() {
+//    	Elements elements =getDoc("https://www.qu.la/").select("div#hotcontent").select(".item");
+    	List<Book> books = new ArrayList<Book>();
+//    	for (Element element : elements) {
+//    		Book book = new Book();
+//    		book.setImgUrl(element.select("img").attr("abs:src"));
+//    		book.setAuthor(element.select("span").text());
+//    		book.setUrl(element.select("a").attr("abs:href"));
+//    		book.setName(element.select("a").text());
+//    		books.add(book);
+//		}
+    	
+    	Elements ets =getDoc("https://www.qu.la/").select("div#hotcontent").select(".r").select("ul > li");
+    	int num =1;
+    	for (Element element : ets) {
+    		Book book = new Book();
+    		book.setAuthor(element.select("span.s5").text());
+    		book.setUrl(element.select("span.s2").select("a").attr("abs:href"));
+    		book.setName(element.select("span.s2").select("a").text());
+    		books.add(book);
+    		if(num == 8) {
+    			break;
+    		}
+    		num++;
 		}
     	
     	return books;

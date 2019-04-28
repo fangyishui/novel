@@ -25,6 +25,8 @@ public class Book {
 	
 	private String bookType;
 	
+	private String imgUrl;
+	
 	private List<SearchResult> listUrls;
 	
 	public String getName() {
@@ -122,6 +124,12 @@ public class Book {
 	}
 	public void setBookType(String bookType) {
 		this.bookType = bookType;
+	}
+	public String getImgUrl() {
+		return imgUrl;
+	}
+	public void setImgUrl(String imgUrl) {
+		this.imgUrl = imgUrl;
 	}
 	
 	

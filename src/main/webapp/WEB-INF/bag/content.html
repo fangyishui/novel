@@ -1,29 +1,29 @@
 <!DOCTYPE html>
+<html>
 <head>
+<title>#(book.title)</title>
 <link rel="icon" href="/bootstrap/favicon.ico" type="image/x-icon" />
 <link rel="shortcut icon" href="/bootstrap/favicon.ico" type="image/x-icon" />
 <meta http-equiv="Cache-Control" content="no-siteapp" />
 <meta http-equiv="Cache-Control" content="no-transform" />
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<title>#(book.title)</title>
 <link rel="Bookmark" href="/static/favicon.ico" >
 <link rel="Shortcut Icon" href="/static/favicon.ico" />
 <link rel="stylesheet" type="text/css" href="/static/css/biquge.css"/>
 <script type="text/javascript" src="/static/js/jquery.min.js"></script>
 <script type="text/javascript" src="/static/js/bqg.js"></script>
 </head>
+
 <body>
     <div id="wrapper">
-        
         <div class="content_read">
             <div class="box_con">
-                <div class="con_top">
+                 <div class="con_top">
                     <script>textselect();</script>
                  </div>
                 <div class="bookname">
                     <h1>正文卷 #(book.title)</h1>
                 </div>
-                
                 <div id="content">#(book.text)</div>
                 <div class="bottem2">
                     <a href="/bag/bagText?url=#(book.lastUrl)">上一章</a> &larr; &larr;
@@ -32,7 +32,6 @@
                 </div>
             </div>
         </div>
- 
     </div>
 </body>
 </html>

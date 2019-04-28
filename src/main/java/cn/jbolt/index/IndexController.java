@@ -17,6 +17,11 @@ public class IndexController extends Controller {
 	 */
 	public void index() {
 		setAttr("books", GetNovel.getNewNovel());
+		setAttr("InPutbooks", GetNovel.getNewInPutNovel());
+		setAttr("xuanhuan", GetNovel.getXuanHuan());
+		setAttr("kehuan", GetNovel.getKeHuan());
+		setAttr("lishi", GetNovel.getLiShi());
+		setAttr("ibook", GetNovel.getIndexBook());
 		render("index.html");
 	}
 	
